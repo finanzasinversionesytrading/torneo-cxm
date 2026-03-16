@@ -370,6 +370,105 @@
     </style>
 </head>
 <body>
+    /* LIGA REAL - FASE 2 */
+.liga-real-box {
+    background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+    border: 3px solid var(--primary);
+    border-radius: 20px;
+    padding: 50px 30px;
+    margin-top: 60px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 208, 156, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.liga-real-box:before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 208, 156, 0.1) 0%, transparent 70%);
+    animation: glow 3s ease-in-out infinite;
+}
+
+@keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.liga-real-icon {
+    font-size: 5rem;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.liga-real-box h3 {
+    position: relative;
+    z-index: 2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.liga-real-box p {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 20px auto;
+}
+
+.liga-real-prize {
+    background-color: rgba(0, 208, 156, 0.1);
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px auto;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
+}
+
+.liga-real-benefits {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 30px auto 0;
+    text-align: left;
+    position: relative;
+    z-index: 2;
+}
+
+.liga-real-benefits li {
+    padding: 12px 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.liga-real-benefits li:last-child {
+    border-bottom: none;
+}
+
+/* RESPONSIVE PARA LIGA REAL */
+@media (max-width: 768px) {
+    .liga-real-box {
+        padding: 30px 20px;
+    }
+    
+    .liga-real-icon {
+        font-size: 3.5rem;
+    }
+    
+    .liga-real-prize span {
+        font-size: 1.8rem;
+    }
+    
+    .liga-real-benefits li {
+        font-size: 1rem;
+    }
+}
 
     <!-- LOGO -->
     <div class="logo-container">
@@ -463,33 +562,60 @@
     </section>
 
     <!-- SECCIÓN 5: PREMIOS -->
-    <section class="prizes">
-        <div class="container">
-            <h2>Premios para los Ganadores</h2>
-            <p>Los mejores traders se llevan la gloria y los premios.</p>
+<section class="prizes">
+    <div class="container">
+        <h2>🏆 Premios del Torneo</h2>
+        <p>Los mejores traders se llevan premios exclusivos y oportunidades únicas.</p>
+        
+        <div class="prizes-grid">
+            <!-- 3er Lugar -->
+            <div class="prize-card">
+                <h3>🥉 3º Lugar</h3>
+                <span class="prize-amount">Mentoría Especializada</span>
+                <p>Con Analista Experto</p>
+                <p style="color: var(--primary); font-weight: bold;">Benjamín Isaza</p>
+            </div>
             
-            <div class="prizes-grid">
-                <!-- 2do Lugar -->
-                <div class="prize-card">
-                    <h3>2º Lugar</h3>
-                    <span class="prize-amount">[Insertar Premio]</span>
-                    <p>Mentoría Especializada</p>
-                </div>
-                <!-- 1er Lugar -->
-                <div class="prize-card first">
-                    <h3>1º Lugar</h3>
-                    <span class="prize-amount">[Insertar Premio]</span>
-                    <p>Paso a Trading Real</p>
-                </div>
-                <!-- 3er Lugar -->
-                <div class="prize-card">
-                    <h3>3º Lugar</h3>
-                    <span class="prize-amount">[Insertar Premio]</span>
-                    <p>Crédito de Trading</p>
-                </div>
+            <!-- 2do Lugar -->
+            <div class="prize-card">
+                <h3>🥈 2º Lugar</h3>
+                <span class="prize-amount">Cuenta CXM $50</span>
+                <p>Cuenta de Trading Real</p>
+                <p style="color: var(--primary); font-weight: bold;">Broker CXM</p>
+            </div>
+            
+            <!-- 1er Lugar -->
+            <div class="prize-card first">
+                <h3>🥇 1º Lugar</h3>
+                <span class="prize-amount">Cuenta CXM $100</span>
+                <p>Cuenta de Trading Real</p>
+                <p style="color: var(--primary); font-weight: bold;">Broker CXM</p>
             </div>
         </div>
-    </section>
+
+        <!-- NUEVA SECCIÓN: LIGA REAL -->
+        <div class="liga-real-box">
+            <div class="liga-real-icon"></div>
+            <h3 style="color: var(--primary); font-size: 2rem;">LIGA REAL - FASE 2</h3>
+            <p style="font-size: 1.3rem; margin: 20px 0;">
+                Los <strong>20 mejores traders</strong> del torneo tendrán acceso exclusivo a la 
+                <strong>Fase 2: Liga Real</strong>
+            </p>
+            <div class="liga-real-prize">
+                <span style="font-size: 2.5rem; font-weight: bold; color: var(--accent);">
+                    💰 CUENTA DE $500 USD
+                </span>
+                <p style="margin-top: 10px;">En el broker CXM</p>
+            </div>
+            <ul class="liga-real-benefits">
+                <li>✅ Acceso exclusivo para top 20 del ranking</li>
+                <li>✅ Oportunidad de operar con capital real</li>
+                <li>✅ Posibilidad de escalar a cuentas mayores</li>
+                <li>✅ Seguimiento personalizado de tu desempeño</li>
+            </ul>
+        </div>
+    </div>
+</section>
 
     <!-- SECCIÓN 6: REGISTRO BROKER -->
     <section id="broker-register" class="broker-register">
