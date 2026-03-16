@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torneo de Trading CXM - Inicia 18 de Marzo</title>
+    <style>
+        /* ESTILOS GENERALES */
+        :root {
+            --primary: #00D09C; /* Verde Trading */
+            --dark: #0F172A;    /* Fondo Oscuro */
+            --light: #F8FAFC;   /* Texto Claro */
+            --accent: #F59E0B;  /* Dorado Premios */
+            --warning: #EF4444; /* Rojo para alertas */
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* LOGO */
+        .logo-container {
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            max-width: 300px;
+            height: auto;
+        }
+
+        /* BOTONES */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--dark);
+            padding: 15px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin: 10px 5px;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #00b88a;
+        }
+
+        .btn-secondary {
+            background-color: var(--accent);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background-color: #d98b0a;
+        }
+
+        .btn-warning {
+            background-color: var(--warning);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #dc2626;
+        }
+
+        /* SECCIÓN 1: HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1611974765270-ca12586343bb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .start-date {
+            background-color: var(--accent);
+            color: var(--dark);
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 10px;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* SECCIÓN 2: BENEFICIOS */
+        .benefits {
+            padding: 80px 0;
+            background-color: #1E293B;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .benefit-card {
+            background: rgba(255,255,255,0.05);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* SECCIÓN 3: CONDICIONES */
+        .conditions {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .conditions-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .condition-item {
+            background-color: var(--dark);
+            border: 2px solid var(--primary);
+            padding: 20px 40px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* SECCIÓN 4: REQUISITOS IMPORTANTES */
+        .requirements {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #1e293b;
+            text-align: center;
+        }
+
+        .requirements-box {
+            background-color: white;
+            border-left: 5px solid var(--warning);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .requirements h2 {
+            color: var(--warning);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .requirements-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .requirements ul {
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+            list-style: none;
+            padding: 0;
+        }
+
+        .requirements li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.1rem;
+        }
+
+        .requirements li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        .requirements-note {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+            font-weight: bold;
+        }
+
+        /* SECCIÓN 5: PREMIOS */
+        .prizes {
+            padding: 80px 0;
+            background-color: #1E293B;
+            text-align: center;
+        }
+
+        .prizes-grid {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .prize-card {
+            background: linear-gradient(145deg, #2a3855, #1e293b);
+            padding: 30px;
+            border-radius: 15px;
+            width: 250px;
+            border-top: 4px solid var(--accent);
+        }
+
+        .prize-card.first {
+            border-top: 4px solid gold;
+            transform: scale(1.1);
+            z-index: 2;
+        }
+
+        .prize-amount {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--accent);
+            display: block;
+            margin: 10px 0;
+        }
+
+        /* SECCIÓN 6: REGISTRO BROKER */
+        .broker-register {
+            padding: 80px 0;
+            text-align: center;
+            background-color: #1E293B;
+        }
+
+        .register-box {
+            background: linear-gradient(135deg, var(--primary) 0%, #00b88a 100%);
+            color: var(--dark);
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .register-box h2 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+        }
+
+        .register-box p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-large {
+            font-size: 1.4rem;
+            padding: 20px 50px;
+            background-color: var(--dark);
+            color: var(--primary);
+        }
+
+        .btn-large:hover {
+            background-color: #000;
+            color: var(--primary);
+        }
+
+        /* SECCIÓN 7: FORMULARIO TORNEO */
+        .tournament-register {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .form-box {
+            background-color: #fff;
+            color: #333;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-full {
+            width: 100%;
+            font-size: 1.2rem;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.8rem;
+            color: #888;
+            border-top: 1px solid #333;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .start-date { font-size: 1.3rem; padding: 10px 25px; }
+            .prize-card.first { transform: scale(1); }
+            .register-box { padding: 30px 20px; }
+            .requirements-box { padding: 25px 15px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- LOGO -->
+    <div class="logo-container">
+        <div class="container">
+            <!-- Reemplaza 'logo-cxm.png' con la ruta real de tu imagen del logo -->
+            <img src="logo-cxm.png" alt="CXM Logo" class="logo">
+        </div>
+    </div>
+
+    <!-- SECCIÓN 1: PRESENTACIÓN -->
+    <header class="hero">
+        <div class="container">
+            <h1>Demuestra tu habilidad en el mercado</h1>
+            <p>Compite contra otros traders en el <strong>Torneo de Trading CXM</strong>.</p>
+            
+            <div class="start-date">
+                📅 INICIA: 18 DE MARZO
+            </div>
+            
+            <br>
+            <a href="#broker-register" class="btn btn-secondary">Abrir Cuenta en CXM</a>
+            <a href="#registro" class="btn">Registrarme al Torneo</a>
+        </div>
+    </header>
+
+    <!-- SECCIÓN 2: BENEFICIOS -->
+    <section class="benefits">
+        <div class="container">
+            <h2 style="text-align: center;">¿Por qué unirte?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span class="benefit-icon">⚔️</span>
+                    <h3>Competencia Real</h3>
+                    <p>Enfréntate a traders reales y mide tu nivel.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🏆</span>
+                    <h3>Premios</h3>
+                    <p>Recompensas exclusivas para los mejores clasificados.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🧠</span>
+                    <h3>Mentoría CXM</h3>
+                    <p>Aprende directamente de nuestros analistas expertos.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="benefit-icon">🚀</span>
+                    <h3>Trading Real</h3>
+                    <p>Oportunidad de pasar a una cuenta financiada.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 3: CONDICIONES -->
+    <section class="conditions">
+        <div class="container">
+            <h2>Condiciones del Torneo</h2>
+            <ul class="conditions-list">
+                <li class="condition-item">📊 Cuenta Demo</li>
+                <li class="condition-item">💵 Balance Inicial: $10,000</li>
+                <li class="condition-item">📅 Duración: 10 Días</li>
+                <li class="condition-item">📈 Ranking por Rentabilidad</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 4: REQUISITOS IMPORTANTES -->
+    <section class="requirements">
+        <div class="container">
+            <div class="requirements-box">
+                <div class="requirements-icon">⚠️</div>
+                <h2>REQUISITO OBLIGATORIO</h2>
+                <p style="font-size: 1.2rem; font-weight: bold;">Solo podrán participar quienes tengan una cuenta creada y verificada con el broker CXM</p>
+                
+                <div class="requirements-note">
+                    ⏰ Si aún no tienes tu cuenta, ábrela ahora y verifícala antes del 18 de marzo
+                </div>
+
+                <ul>
+                    <li>Registro completado en CXM</li>
+                    <li>Verificación de identidad aprobada</li>
+                    <li>Cuenta activa antes del inicio del torneo</li>
+                </ul>
+
+                <a href="https://my.cxm.com/links/go/309850" target="_blank" class="btn btn-warning">
+                    📝 Abrir Cuenta CXM Ahora
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 5: PREMIOS -->
+    <section class="prizes">
+        <div class="container">
+            <h2>Premios para los Ganadores</h2>
+            <p>Los mejores traders se llevan la gloria y los premios.</p>
+            
+            <div class="prizes-grid">
+                <!-- 2do Lugar -->
+                <div class="prize-card">
+                    <h3>2º Lugar</h3>
+                    <span class="prize-amount">[Insertar Premio]</span>
+                    <p>Mentoría Especializada</p>
+                </div>
+                <!-- 1er Lugar -->
+                <div class="prize-card first">
+                    <h3>1º Lugar</h3>
+                    <span class="prize-amount">[Insertar Premio]</span>
+                    <p>Paso a Trading Real</p>
+                </div>
+                <!-- 3er Lugar -->
+                <div class="prize-card">
+                    <h3>3º Lugar</h3>
+                    <span class="prize-amount">[Insertar Premio]</span>
+                    <p>Crédito de Trading</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 6: REGISTRO BROKER -->
+    <section id="broker-register" class="broker-register">
+        <div class="container">
+            <div class="register-box">
+                <h2>🚀 ¿Aún no tienes cuenta en CXM?</h2>
+                <p>Abre tu cuenta ahora en menos de 5 minutos y prepárate para el torneo que inicia el <strong>18 de marzo</strong>.</p>
+                <p style="font-size: 1rem; margin-bottom: 20px;">
+                    <strong>Importante:</strong> Recuerda completar el proceso de verificación para poder participar.
+                </p>
+                <a href="https://my.cxm.com/links/go/309850" target="_blank" class="btn btn-large">
+                    ABRIR CUENTA EN CXM
+                </a>
+                <p style="margin-top: 20px; font-size: 0.9rem;">
+                    🔗 Registro rápido y 100% seguro
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 7: FORMULARIO DE REGISTRO AL TORNEO -->
+    <section id="registro" class="tournament-register">
+        <div class="container">
+            <h2>Inscríbete al Torneo</h2>
+            <p style="color: var(--warning); font-weight: bold; margin-bottom: 30px;">
+                ⚠️ Solo si ya tienes cuenta verificada en CXM
+            </p>
+            
+            <div class="form-box">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contacto">Telegram / WhatsApp</label>
+                        <input type="text" id="contacto" name="contacto" placeholder="+54 9 11..." required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pais">País de Residencia</label>
+                        <select id="pais" name="pais" required>
+                            <option value="">Selecciona tu país</option>
+                            <option value="MX">México</option>
+                            <option value="AR">Argentina</option>
+                            <option value="CO">Colombia</option>
+                            <option value="ES">España</option>
+                            <option value="CL">Chile</option>
+                            <option value="PE">Perú</option>
+                            <option value="OTRO">Otro</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="background-color: #fef3c7; padding: 15px; border-radius: 5px; border-left: 4px solid var(--accent);">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" required style="width: auto; margin-right: 10px;">
+                            <span style="font-size: 0.85rem; font-weight: normal;">
+                                Confirmo que tengo una cuenta creada y verificada en CXM
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-full">
+                        PARTICIPAR EN EL TORNEO
+                    </button>
+                    
+                    <p style="margin-top: 20px; font-size: 0.9rem; color: #666;">
+                        ¿No tienes cuenta? <a href="https://my.cxm.com/links/go/309850" target="_blank" style="color: var(--primary); font-weight: bold;">Ábrela aquí</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CXM Trading. Todos los derechos reservados.</p>
+            <p>El trading conlleva riesgos. Opera con responsabilidad.</p>
+            <p style="margin-top: 10px;">Torneo inicia: 18 de Marzo, 2026</p>
+        </div>
+    </footer>
+
+</body>
+</html>
